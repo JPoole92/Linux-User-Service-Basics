@@ -1,108 +1,116 @@
-# Linux User & Service Basics
+# Linux User & Service Basics (Azure VM)
 
-*(Linux / System Administration / Core Technical Support)*
+(Windows / Linux / Core Technical Support)
 
 ## Project Overview
+This project demonstrates foundational Linux system administration skills performed in a cloud environment. The lab focuses on connecting to a Linux virtual machine from a Windows-based system, managing user accounts, and verifying system services using standard Linux commands.
 
-This project demonstrates fundamental Linux system administration tasks commonly performed in entry-level technical support and junior system administrator roles. The lab focuses on managing Linux users, verifying permissions, and controlling system services within a cloud-hosted Linux virtual machine.
-
-These tasks reflect real-world Linux support responsibilities such as onboarding users, managing access, and ensuring system services are running properly.
+This type of task is commonly performed by help desk technicians, system administrators, and cloud support engineers.
 
 ---
 
 ## Key Skills Demonstrated
-
-- Linux user account management  
-- Password and group administration  
-- File and directory permission awareness  
-- Service management using systemd  
-- Command-line troubleshooting  
-- Linux system verification
-
----
-
-## Environment & Technologies Used
-
-- **Cloud Platform:** Microsoft Azure (Virtual Machine)  
-- **Operating System:** Linux (Ubuntu)  
-- **Access Method:** SSH  
-- **Service Manager:** systemd  
+- Linux user account management
+- SSH connectivity and remote administration
+- Basic Linux permissions and privilege escalation
+- Service management using systemd
+- Cross-platform support (Windows to Linux)
+- Cloud virtual machine administration
 
 ---
 
-## Tools & Commands Used
-
-- `useradd`
-- `passwd`
-- `usermod`
-- `groups`
-- `id`
-- `ls -l`
-- `systemctl`
-- `whoami`
-- `hostname`
-- `uptime`
+## Environments & Technologies Used
+- Microsoft Azure (Virtual Machines)
+- Windows Virtual Machine (administrative workstation)
+- Linux Virtual Machine (Ubuntu)
+- PuTTY (SSH client)
+- Secure Shell (SSH)
 
 ---
 
-## Tasks Performed
-
-- Created a new Linux user account  
-- Assigned and updated user passwords  
-- Verified group membership and permissions  
-- Switched users to confirm access  
-- Checked file and directory permissions  
-- Verified system identity and uptime  
-- Started, stopped, and validated a Linux service  
-- Confirmed service status using systemctl  
+## Operating Systems Used
+- Windows 10 / Windows Server
+- Ubuntu Linux (20.04 / 22.04 LTS)
 
 ---
 
-## Linux Administration Workflow
-
-1. Connected to the Linux VM using SSH  
-2. Verified system identity and current user  
-3. Created a new user account  
-4. Set and managed user credentials  
-5. Validated user group membership  
-6. Reviewed file and directory permissions  
-7. Managed a system service (start / stop / status)  
-8. Confirmed service health and system stability  
+## Project Tasks Performed
+- Created and connected to Azure virtual machines
+- Installed PuTTY on a Windows VM
+- Connected securely to a Linux VM using SSH
+- Verified the logged-in Linux user
+- Created a new Linux user account
+- Verified user creation via system files
+- Checked and validated the SSH service status
 
 ---
 
-## Screenshots & Explanations
+## Lab Workflow
 
+### 1. Windows VM Setup
+A Windows virtual machine was created in Azure to act as an administrative workstation. Remote Desktop Protocol (RDP) was used to connect to the system.
+<img width="975" height="504" alt="image" src="https://github.com/user-attachments/assets/2c540400-093f-43d0-baa7-5652b43a29ca" />
 
-SSH connection to Azure Linux VM  
-
-System identity verification (`whoami`, `hostname`)  
-
-User account creation  
-
-Password assignment  
-
-Group membership verification  
-
-File and directory permission check  
-
-Service status check using `systemctl`  
-
-Service start and validation  
-
-Each screenshot includes command output to verify successful completion of each administrative task.
+📸 Screenshot: Windows VM overview
 
 ---
 
-## Outcome
+### 2. PuTTY Installation
+PuTTY was installed on the Windows VM to enable SSH access to the Linux virtual machine.
+<img width="975" height="789" alt="image" src="https://github.com/user-attachments/assets/98c7daef-27b2-464f-b115-40c2c741b4d6" />
+<img width="975" height="830" alt="image" src="https://github.com/user-attachments/assets/fa1b5521-db0c-4a9b-9830-38a4afa0851a" />
 
-- Successfully created and managed Linux user accounts  
-- Verified permissions and access control  
-- Ensured critical services were running properly  
-- Demonstrated core Linux administration skills applicable to help desk and junior system administrator roles  
+📸 Screenshot: PuTTY installed on Windows VM
 
 ---
 
-## Why This Project Matters
+### 3. Linux VM Deployment
+A Linux virtual machine (Ubuntu) was deployed in Azure with SSH (port 22) enabled for remote access.
+<img width="975" height="517" alt="image" src="https://github.com/user-attachments/assets/93b15848-0472-4e30-9098-f5eee86eba4f" />
 
-Linux is widely used across enterprise environments, cloud platforms, and server infrastructure. This project demonstrates the ability to confidently manage Linux users and services — a critical skill for technical support, systems administration, and cloud support roles.
+📸 Screenshot: Linux VM overview with public IP
+
+---
+
+### 4. SSH Connection to Linux VM
+PuTTY was used to establish an SSH connection from the Windows VM to the Linux VM.
+<img width="975" height="706" alt="image" src="https://github.com/user-attachments/assets/f9d206b8-552b-4ac0-aaeb-10c3ffbc4b02" />
+
+📸 Screenshot: Successful SSH connection
+
+---
+
+### 5. Verify Logged-In User
+whoami
+Confirmed the current Linux user session.
+<img width="975" height="485" alt="image" src="https://github.com/user-attachments/assets/db40abef-439e-413a-a66c-a26a82525d13" />
+
+<img width="975" height="725" alt="image" src="https://github.com/user-attachments/assets/195a92a1-a834-49cd-ae3e-434425959d8a" />
+
+📸 Screenshot: whoami output
+
+### 6. Create a New Linux User
+bash
+sudo adduser supportuser
+
+A new user account was created to demonstrate user management.
+<img width="975" height="637" alt="image" src="https://github.com/user-attachments/assets/267b18fd-fe8d-47dc-910d-f0f8ac0eb32e" />
+
+📸 Screenshot: User creation process
+
+### 7. Verify User Creation
+bash
+cat /etc/passwd | grep supportuser
+Verified that the user exists in the system.
+<img width="975" height="592" alt="image" src="https://github.com/user-attachments/assets/5df41e13-d2bc-44c6-a50a-9c232dfefbee" />
+
+📸 Screenshot: User verification output
+
+### 8. Check SSH Service Status
+bash
+sudo systemctl status ssh
+Confirmed that the SSH service is active, running, and enabled.
+<img width="975" height="527" alt="image" src="https://github.com/user-attachments/assets/76ccdef7-42b2-4c1e-a3a0-be2b00de78fa" />
+
+📸 Screenshot: SSH service status
+
